@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/tools';
+const API_URL = 'https://veryusefultools.herokuapp.com/tools';
 
 const getAllTools = async () => {
   try {
