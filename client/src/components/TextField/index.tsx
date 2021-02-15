@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { InputGroup, TextInput, InputLabel, Message } from './styles';
 
 export interface TextFieldProps {
-  placeholder: string;
+  label: string;
   changeCallback?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   disabled?: boolean;
   message: TextFieldMessage | null;
@@ -11,6 +11,7 @@ export interface TextFieldProps {
   height?: string;
   onEnter?: () => void;
   onBlur?: () => void;
+  placeholder?: string;
 }
 
 export enum MessageType {
@@ -24,7 +25,7 @@ export interface TextFieldMessage {
 }
 
 const TextField: React.FC<TextFieldProps> = ({
-  placeholder,
+  label,
   changeCallback,
   disabled,
   message,
@@ -33,6 +34,7 @@ const TextField: React.FC<TextFieldProps> = ({
   height,
   onEnter,
   onBlur,
+  placeholder,
 }) => {
   const inputLabelRef = useRef<HTMLLabelElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -78,7 +80,7 @@ const TextField: React.FC<TextFieldProps> = ({
           inputRef.current?.focus();
         }}
       >
-        {placeholder}
+        {label}
       </InputLabel>
       <TextInput
         ref={inputRef}
@@ -87,6 +89,7 @@ const TextField: React.FC<TextFieldProps> = ({
         id={id}
         value={value}
         height={height}
+        placeholder={placeholder}
       />
       {message && <Message type={message.type}>{message.message}</Message>}
     </InputGroup>

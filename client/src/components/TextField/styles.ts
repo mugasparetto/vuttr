@@ -31,6 +31,10 @@ export const TextInput = styled.textarea<TextInputProps>`
   :disabled {
     background: #e8e8e8;
   }
+
+  ::placeholder {
+    color: #cacccf;
+  }
 `;
 
 export const InputGroup = styled.div`

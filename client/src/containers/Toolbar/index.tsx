@@ -11,7 +11,7 @@ import Button, {
 } from '../../components/Button';
 import TagSwitch from '../../components/TagSwitch';
 import TextField from '../../components/TextField';
-import { Container, SearchBar } from './styles';
+import { Container, SearchBar, SearchField } from './styles';
 
 interface ToolBarProps {
   onAddToolClick: () => void;
@@ -39,7 +39,7 @@ const Toolbar: React.FC<ToolBarProps> = ({ onAddToolClick }) => {
     setSearchQuery(target.value);
   };
 
-  const handleSearch = async () => {
+  const handleSearch = async (query: string) => {
     setLoadingManager({
       addTool: false,
       allTools: true,
@@ -47,7 +47,7 @@ const Toolbar: React.FC<ToolBarProps> = ({ onAddToolClick }) => {
     });
     setTools([]);
     setHadSearch(true);
-    const data = await getFilteredTools(searchQuery, !tagSearch);
+    const data = await getFilteredTools(query, !tagSearch);
     setLoadingManager({
       addTool: false,
       allTools: false,
@@ -62,8 +62,18 @@ const Toolbar: React.FC<ToolBarProps> = ({ onAddToolClick }) => {
 
   const handleBlur = () => {
     if (hadSearch && searchQuery === '') {
-      handleSearch();
+      handleSearch('');
       setHadSearch(false);
+    }
+  };
+
+  const handleSearchClick = () => {
+    if (hadSearch) {
+      setSearchQuery('');
+      handleSearch('');
+      setHadSearch(false);
+    } else {
+      handleSearch(searchQuery);
     }
   };
 
@@ -78,20 +88,41 @@ const Toolbar: React.FC<ToolBarProps> = ({ onAddToolClick }) => {
         btnColor={ButtonColor.Primary}
       />
       <SearchBar>
-        <TextField
-          placeholder={'Search'}
-          changeCallback={handleInputChange}
-          disabled={loadingManager.allTools}
-          message={null}
-          id={'searchField'}
-          value={searchQuery}
-          onEnter={() => {
-            handleSearch();
-          }}
-          onBlur={() => {
-            handleBlur();
-          }}
-        />
+        <SearchField>
+          <TextField
+            label={''}
+            placeholder={'Search'}
+            changeCallback={handleInputChange}
+            disabled={loadingManager.allTools}
+            message={null}
+            id={'searchField'}
+            value={searchQuery}
+            onEnter={() => {
+              if (searchQuery !== '') handleSearch(searchQuery);
+            }}
+            onBlur={() => {
+              handleBlur();
+            }}
+          />
+          <Button
+            btnHierarchy={ButtonHierarchy.Icon}
+            btnColor={ButtonColor.Primary}
+            disabled={loadingManager.allTools}
+            callback={() => {
+              handleSearchClick();
+            }}
+            leadingIcon={hadSearch ? ButtonIcon.WhiteClose : ButtonIcon.Search}
+            customStyles={{
+              position: 'absolute',
+              top: '1rem',
+              right: '0',
+              minWidth: '3rem',
+              height: '3rem',
+              borderRadius: '0 0.5rem 0.5rem 0',
+              background: ButtonColor.Primary,
+            }}
+          />
+        </SearchField>
         <TagSwitch disabled={loadingManager.allTools} />
       </SearchBar>
     </Container>

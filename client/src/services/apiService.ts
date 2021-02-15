@@ -41,6 +41,7 @@ const getFilteredTools = async (searchQuery: string, isGlobal: boolean) => {
   }
   try {
     const { data } = await axios.get(query);
+    data.reverse();
     return data;
   } catch (error) {
     return error;

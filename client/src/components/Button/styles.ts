@@ -4,6 +4,8 @@ import { ButtonHierarchy, ButtonColor, ButtonIcon } from './index';
 import Plus from './add.svg';
 import Delete from './delete.svg';
 import Close from './close.svg';
+import WhiteClose from './whiteClose.svg';
+import Search from './search.svg';
 
 interface ButtonStyleProps {
   btnHierarchy: ButtonHierarchy;
@@ -17,6 +19,10 @@ interface LeadingIconProps {
 
 const findIcon = (icon: ButtonIcon) => {
   switch (icon) {
+    case ButtonIcon.WhiteClose:
+      return WhiteClose;
+    case ButtonIcon.Search:
+      return Search;
     case ButtonIcon.Close:
       return Close;
     case ButtonIcon.Trash:

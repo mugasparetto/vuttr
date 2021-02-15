@@ -22,3 +22,7 @@ export const SearchBar = styled.div`
     flex-direction: column;
   }
 `;
+
+export const SearchField = styled.div`
+  position: relative;
+`;

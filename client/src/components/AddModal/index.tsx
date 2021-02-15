@@ -44,26 +44,26 @@ const AddModal: React.FC<AddModalProps> = ({ onClose }) => {
   const [formData, setFormData] = useState<TextFieldProps[]>([
     {
       id: 'titleField',
-      placeholder: 'Title*',
+      label: 'Title*',
       message: null,
       value: '',
     },
     {
       id: 'linkField',
-      placeholder: 'Link*',
+      label: 'Link*',
       message: null,
       value: '',
     },
     {
       id: 'descField',
-      placeholder: 'Description*',
+      label: 'Description*',
       message: null,
       value: '',
       height: '5.5rem',
     },
     {
       id: 'tagsField',
-      placeholder: 'Tags*',
+      label: 'Tags*',
       message: {
         type: MessageType.Helper,
         message: 'Tags must be separated by space',
@@ -179,7 +179,7 @@ const AddModal: React.FC<AddModalProps> = ({ onClose }) => {
       <ModalForm onSubmit={handleFormSubmit}>
         {formData.map((input) => (
           <TextField
-            placeholder={input.placeholder}
+            label={input.label}
             changeCallback={handleInputChange}
             disabled={loadingManager.addTool}
             message={input.message}

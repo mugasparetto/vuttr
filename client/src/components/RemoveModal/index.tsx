@@ -115,7 +115,7 @@ const RemoveModal: React.FC<RemoveModalProps> = ({ onClose, toolToDelete }) => {
           }}
           text={'Cancel'}
           disabled={loadingManager.deleteTool}
-          margin={{ marginRight: `${queryMatch ? '0' : '1rem'}` }}
+          customStyles={{ marginRight: `${queryMatch ? '0' : '1rem'}` }}
         />
         <Button
           btnHierarchy={ButtonHierarchy.Primary}
@@ -125,7 +125,7 @@ const RemoveModal: React.FC<RemoveModalProps> = ({ onClose, toolToDelete }) => {
           }}
           text={'Yes, remove'}
           disabled={loadingManager.deleteTool}
-          margin={{ marginTop: '1rem' }}
+          customStyles={{ marginTop: '1rem' }}
         />
       </ButtonDeck>
     </Modal>

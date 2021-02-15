@@ -8,7 +8,7 @@ interface ButtonProps {
   text?: string;
   btnHierarchy: ButtonHierarchy;
   btnColor?: ButtonColor;
-  margin?: Object;
+  customStyles?: Object;
 }
 
 export enum ButtonHierarchy {
@@ -22,6 +22,8 @@ export enum ButtonIcon {
   Add = 'Add',
   Trash = 'Trash',
   Close = 'Close',
+  Search = 'Search',
+  WhiteClose = 'Close',
 }
 
 export enum ButtonColor {
@@ -36,7 +38,7 @@ const Button: React.FC<ButtonProps> = ({
   text,
   btnHierarchy,
   btnColor,
-  margin,
+  customStyles,
 }) => {
   return (
     <ButtonStyle
@@ -44,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       btnColor={btnColor}
       btnHierarchy={btnHierarchy}
-      style={margin}
+      style={customStyles}
     >
       {leadingIcon && (
         <LeadingIcon
