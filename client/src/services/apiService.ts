@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const API_URL =
-  'https://my-json-server.typicode.com/mugasparetto/vuttr-db/tools';
+const API_URL = 'http://localhost:8080/tools';
 
 const getAllTools = async () => {
   try {
