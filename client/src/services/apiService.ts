@@ -5,6 +5,7 @@ const API_URL = 'https://veryusefultools.herokuapp.com/tools';
 const getAllTools = async () => {
   try {
     const { data } = await axios.get<ToolData[]>(API_URL);
+    data.reverse();
     return data;
   } catch (error) {
     return error;
