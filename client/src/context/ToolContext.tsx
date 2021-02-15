@@ -32,7 +32,7 @@ const ToolProvider: React.FC = ({ children }) => {
     if (res instanceof Error) {
       return res;
     }
-    setTools([...tools, res]);
+    setTools([res, ...tools]);
   };
 
   const deleteTool = async (id: number) => {

@@ -108,6 +108,13 @@ const AddModal: React.FC<AddModalProps> = ({ onClose }) => {
 
     const [titleField, linkField, descField, tagsField] = formData;
 
+    const httpsVerifier = linkField.value.search('https');
+    const httpVerifier = linkField.value.search('http');
+
+    if (httpsVerifier === -1 && httpVerifier === -1) {
+      linkField.value = `https://${linkField.value}`;
+    }
+
     const arrayTags = tagsField.value.split(' ');
 
     const res: any = await saveTool({
