@@ -1,0 +1,9 @@
+.toastClass {
+  background-color: #fb4e4e;
+  border-radius: 0.5rem;
+}
+
+.toastContainer {
+  width: 100%;
+  max-width: 40rem;
+}
