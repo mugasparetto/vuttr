@@ -73,7 +73,7 @@ const Toolbar: React.FC<ToolBarProps> = ({ onAddToolClick }) => {
       handleSearch('');
       setHadSearch(false);
     } else {
-      handleSearch(searchQuery);
+      if (searchQuery !== '') handleSearch(searchQuery);
     }
   };
 

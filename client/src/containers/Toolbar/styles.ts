@@ -14,10 +14,6 @@ export const Container = styled.section`
 export const SearchBar = styled.div`
   display: flex;
 
-  @media screen and (max-width: 37.5rem) {
-    padding-top: 1rem;
-  }
-
   @media screen and (max-width: 22.5rem) {
     flex-direction: column;
   }
