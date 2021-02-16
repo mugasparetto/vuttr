@@ -68,7 +68,7 @@ Com isso você terá a API online em `htpps://localhost:8080` e o client em `htp
 - A fim de evitar envio de dados vazios para a API, foi implementado um sistema de validação na modal de adicionar ferramenta.
 - As modais não apresentavam um botão de fechar, isso poderia dificultar a compreensão do usuário sobre como sair daquele estado.
 - Com a adição de um botão de fechar à direita do título da modal - em forma de X -, foi alterado o ícone do botão de remover ferramenta. Foi usado um ícone de lixo para que não confunda com o X das modais.
-- A aplicação se adapta à diversos tamanhos de tela, tornando-se 100% responsiva.
+- A aplicação se adapta a diversos tamanhos de tela, tornando-se 100% responsiva.
 
 ------------
 
@@ -79,7 +79,7 @@ O maior questionamento sobre a proposta é sobre a busca ser feita no backend. A
 
 ### Próximos passos
 Abaixo estão albuns bugs encontrados após alguns testes em cenários diversos - devices e browsers.
-- **[Chrome]** - Foi identificado um bug no posicionamento da label do botão de adicionar ferramenta.
+- **[Chrome - algumas versões]** - Foi identificado um bug no posicionamento da label do botão de adicionar ferramenta.
 - **[Edge]** - Não dá suporte à função `addEventListener` para o tipo `MediaQueryList` - usado para adaptar os botões na modal de remover ferramenta
 
 ------------
