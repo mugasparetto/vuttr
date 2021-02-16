@@ -23,7 +23,7 @@ export enum ButtonIcon {
   Trash = 'Trash',
   Close = 'Close',
   Search = 'Search',
-  WhiteClose = 'Close',
+  WhiteClose = 'White Close',
 }
 
 export enum ButtonColor {
